@@ -6,7 +6,7 @@ let iframe_paste = false
 
 let youtube_jump = function () {
   let i = setInterval(function () {
-    if ($('#player') != null && location.search != undefined) {
+    if ($('#player') != null && location.search != '') {
       // clearInterval(i)
       url_hitory = location.search
 
@@ -29,14 +29,11 @@ let youtube_jump = function () {
 }
 
 $(function () {
-  if ($('.ytd-enforcement-message-view-model') != undefined)
-    youtube_jump()
-
+  youtube_jump()
   $(window).on('resize', function (event) {
     let e = $('#player')
     let w = e.width()
     let h = e.height()
     $('#custom_y').css({ 'width': w + 'px', 'height': h + 'px' })
   })
-
 });
