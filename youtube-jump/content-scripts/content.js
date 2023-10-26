@@ -2,7 +2,7 @@
 let url_hitory, url_history_current;
 let url_change = false
 const url_check_time = 1000
-const iframe_id_str = "video_custom"
+const iframe_id_str = btoa(crypto.randomUUID())
 const iframe_id = "#" + iframe_id_str
 
 let youtube_jump = function () {
@@ -13,7 +13,7 @@ let youtube_jump = function () {
 
       if (url_hitory != url_history_current) url_change = true;
 
-      if (document.querySelector('#video_custom') == null) {
+      if (document.querySelector(iframe_id) == null) {
         $('#player').append(`<iframe id="${iframe_id_str}" style="width:100%; height:100%; z-index:99; position:absolute; top:0;left:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`);
         url_change = true
       }
