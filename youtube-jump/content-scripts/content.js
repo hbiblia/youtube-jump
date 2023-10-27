@@ -11,7 +11,8 @@ let youtube_jump = function () {
     if ($('#player') != null && location.search != '') {
       // clearInterval(i)
 
-      if (document.querySelector('.html5-main-video').paused == false) {
+      // Detenemos el reprodutor
+      if (document.querySelector('.html5-main-video')?.paused == false) {
         document.querySelector('.html5-main-video').pause();
         document.querySelector('.html5-main-video').muted = true
         document.querySelector('.html5-main-video').style.display = 'none'
