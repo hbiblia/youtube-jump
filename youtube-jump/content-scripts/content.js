@@ -24,7 +24,13 @@ let youtube_jump = function () {
         let url_code = location.search.split('=')[1].split('&')[0]
 
         $(iframe_id).attr('src', `https://www.youtube-nocookie.com/embed/${url_code}`)
+        url_empty = false
       }
+    }
+
+    if (location.search == '' && url_change == false) {
+      url_change = true
+      $(iframe_id).attr('src', ``)
     }
   }, url_check_time);
 }
