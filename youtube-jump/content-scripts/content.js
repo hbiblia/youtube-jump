@@ -8,15 +8,27 @@ const iframe_id = "#" + iframe_id_str
 
 let youtube_jump = function () {
   let i = setInterval(function () {
+
+    if (document.querySelector('.ytp-ad-player-overlay-instream-info') != null) {
+      document.querySelector('video').currentTime = 999999999999999999999999999999999999999999;
+      document.querySelector('.ytp-ad-skip-button-modern')?.click();
+    }
+
+    if ( document.querySelectorAll('.yt-playability-error-supported-renderers').length  > 0 ) {
+      clearInterval(i);
+      location.reload();
+    }
+    return 1;
+
     if ($('#player') != null && location.search != '') {
       // clearInterval(i)
 
       // Detenemos el reprodutor
-      if (document.querySelector('.html5-main-video')?.paused == false) {
-        document.querySelector('.html5-main-video').pause();
-        document.querySelector('.html5-main-video').muted = true
-        document.querySelector('.html5-main-video').style.display = 'none'
-      }
+      // if (document.querySelector('.html5-main-video')?.paused == false) {
+      //   document.querySelector('.html5-main-video').pause();
+      //   document.querySelector('.html5-main-video').muted = true
+      //   document.querySelector('.html5-main-video').style.display = 'none'
+      // }
 
       // para el cambio de la url
       url_hitory = location.search
@@ -24,7 +36,7 @@ let youtube_jump = function () {
 
       // cuando aun no tenemos el custom_youtube
       if (document.querySelector(iframe_id) == null) {
-        $('#player').append(`<iframe id="${iframe_id_str}" style="width:100%; height:100%; z-index:99; position:absolute; top:0;left:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`);
+        // $('#player').append(`<iframe id="${iframe_id_str}" style="width:100%; height:100%; z-index:99; position:absolute; top:0;left:0;" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>`);
         url_change = true
       }
 
@@ -34,7 +46,7 @@ let youtube_jump = function () {
         url_history_current = url_hitory
         let url_code = location.search.split('=')[1].split('&')[0]
 
-        $(iframe_id).attr('src', `https://www.youtube-nocookie.com/embed/${url_code}`)
+        // $(iframe_id).attr('src', `https://www.youtube-nocookie.com/embed/${url_code}`)
         url_empty = false
       }
     }
