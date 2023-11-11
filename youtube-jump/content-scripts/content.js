@@ -14,7 +14,7 @@ let youtube_jump = function () {
       document.querySelector('.ytp-ad-skip-button-modern')?.click();
     }
 
-    if ( document.querySelectorAll('.yt-playability-error-supported-renderers').length  > 0 ) {
+    if ( document.getElementById('ad-text:3') != null ) {
       clearInterval(i);
       location.reload();
     }
