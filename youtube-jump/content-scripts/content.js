@@ -2,7 +2,7 @@
 let url_hitory, url_history_current;
 let url_change = false
 let video_youtube = null
-const url_check_time = 1000
+const url_check_time = 300
 const iframe_id_str = btoa(crypto.randomUUID())
 const iframe_id = "#" + iframe_id_str
 
@@ -12,6 +12,7 @@ let youtube_jump = function () {
     if (document.querySelector('.ytp-ad-player-overlay-instream-info') != null) {
       document.querySelector('video').currentTime = 999999999999999999999999999999999999999999;
       document.querySelector('.ytp-ad-skip-button-modern')?.click();
+      document.querySelector('.ytp-ad-skip-button')?.click();
     }
 
     if ( document.getElementById('ad-text:3') != null ) {
