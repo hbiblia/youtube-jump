@@ -2,7 +2,7 @@
 let url_hitory, url_history_current;
 let url_change = false
 let video_youtube = null
-const url_check_time = 300
+const url_check_time = 50
 const iframe_id_str = btoa(crypto.randomUUID())
 const iframe_id = "#" + iframe_id_str
 
